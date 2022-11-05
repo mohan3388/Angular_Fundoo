@@ -1,0 +1,41 @@
+<mat-card class="mat-cards">
+    <form [formGroup]="login" (ngSubmit)="onSubmit()">
+    <div>
+<div class="" fxLayoutAlign="center start">
+    <h1 class="head-style"><span class="Fundoo-f">F</span><span
+        class="Fundoo-u">u</span><span class="Fundoo-n">n</span><span class="Fundoo-d">d</span><span
+        class="Fundoo-o">o</span><span class="Fundoo-oo">o</span></h1>
+        </div>
+        <div class="" fxLayoutAlign="center start"> <h2>Sign in</h2></div>
+            <div class="" fxLayoutAlign="center start"><h3>Use your Fundoo Account</h3>
+</div>
+
+<div>
+<div fxLayoutAlign="center start">
+    <mat-form-field appearance="outline" class="LabelWidth">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Placeholder"  formControlName="email">
+        <mat-error>Enter Email</mat-error>
+    </mat-form-field>
+</div>
+<div fxLayoutAlign="center start">
+    <mat-form-field appearance="outline" class="LabelWidth">
+        <mat-label>Password</mat-label>
+        <input matInput placeholder="Placeholder" type="password"  formControlName="password">
+        <mat-error>Enter Password</mat-error>
+    </mat-form-field>
+</div>
+<div class="ForgetPass">
+   <a  routerLink="/forgetpassword"> Forget Password?</a>
+  
+</div>
+<div class="NotYourComputer"> <p>Not your computer? Use Guest mode to sign in privately.<br><span class="Learn">Learn more</span></p></div>
+<div class="CreateAccountLogin" style="display: flex;">
+<div class="CreateAccountbtn" routerLink="register"><a routerLink="/register">Create Account</a>
+</div><div class="LoginBtn"><button mat-raised-button class="LoginButton">Login</button></div>
+</div>
+</div>
+
+</div>
+    </form>
+</mat-card>

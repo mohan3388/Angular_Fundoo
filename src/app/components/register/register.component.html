@@ -1,0 +1,75 @@
+<mat-card class="mat-cards">
+    <form [formGroup]="register" (ngSubmit)="onSubmit()">
+    <div>
+        
+        <div fxLayoutAlign="start">
+            <h1 class="head-style"><span class="Fundoo-f">F</span><span class="Fundoo-u">u</span><span
+                    class="Fundoo-n">n</span><span class="Fundoo-d">d</span><span class="Fundoo-o">o</span><span
+                    class="Fundoo-oo">o</span></h1>
+
+        </div>
+
+        <div fxLayoutAlign="start">
+            <h3>Create Your Fundoonote Account</h3>
+        </div>
+        <div fxLayoutAlign="space-between start">
+            <div fxLayoutAlign="start">
+                <mat-form-field appearance="outline">
+                    <mat-label>First name</mat-label>
+                    <input matInput placeholder="Placeholder" formControlName="firstname">
+                    <mat-error>Enter Firstname</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="lastname-space">
+                    <mat-label>Last name</mat-label>
+                    <input matInput placeholder="Placeholder" formControlName="lastname">
+                    <mat-error>Enter Lastname</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="img-width">
+                <img src="../../../assets/account.svg" class="Register-img">
+                <figcaption class="img-content">One account. All of Fundoo<br> working for you.</figcaption>
+            </div>
+            <!-- <div class="img-content">
+                
+            </div> -->
+        </div>
+        <div class="username-margin" fxLayoutAlign="start">
+            <mat-form-field appearance="outline" class="username">
+                <mat-label>Username</mat-label>
+                <input matInput placeholder="Placeholder" formControlName="username">
+                <mat-error>Enter username</mat-error>
+            </mat-form-field>
+
+
+        </div>
+        <div fxLayoutAlign="start" class="Suggestion">You Can Use Letter, Number & Periods</div>
+        <div fxLayoutAlign="start" class="UseCurrentEmail">Use my current email address instead</div>
+        <div fxLayoutAlign="start">
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput placeholder="Placeholder" type="password" formControlName="password">
+                <mat-error>Enter password</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="lastname-space">
+                <mat-label>Confirm password</mat-label>
+                <input matInput placeholder="Placeholder" type="password" formControlName="confirmpassword">
+                <mat-error>Enter confirm password</mat-error>
+            </mat-form-field>
+        </div>
+        <div fxLayoutAlign="start" class="Suggestion">Use 8 or more characters with a mix of letters, numbers & symbols
+        </div>
+        <div fxLayoutAlign="start">
+            <mat-checkbox class="Show-pass">Show Password</mat-checkbox>
+        </div>
+    </div>
+    <div style="display:flex" class="SignNextbtn">
+       <div class="btn-Sign">
+        <a  routerLink="/signin">  Sign in instaed</a> 
+        </div>
+        <div class="btn-next">
+            <button mat-raised-button class="SignButton" (click)="onSubmit">Signup</button>
+        </div>
+        
+    </div>
+</form>
+</mat-card>
