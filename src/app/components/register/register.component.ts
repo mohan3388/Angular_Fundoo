@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserServiceService } from 'src/app/services/userService/user-service.service';
 
+
+
 // import { MustMatch } from './_helpers/must-match.validator';
 @Component({
   selector: 'app-register',
@@ -9,8 +11,10 @@ import { UserServiceService } from 'src/app/services/userService/user-service.se
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
+ 
   register!: FormGroup;
   submitted = false;
+  hide = true;
   constructor(private formBuilder: FormBuilder, private user:UserServiceService) { }
 
   ngOnInit(): void {
@@ -18,11 +22,12 @@ export class RegisterComponent implements OnInit {
       firstname: ['', Validators.required],
       lastname: ['', Validators.required],
       username: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(8)]],
+      password: ['', [Validators.required, Validators.minLength(4)]],
       confirmpassword: ['', Validators.required]
       
   });
-  }
+  
+  } 
 get f(){return this.register.controls;}
 onSubmit() {
   this.submitted = true;

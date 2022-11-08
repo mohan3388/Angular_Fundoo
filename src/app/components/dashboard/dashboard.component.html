@@ -1,0 +1,47 @@
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+  <mat-toolbar class="example-toolbar">
+    <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+   
+  <div class="img-width">
+    <img src="../../../assets/keep_note.png" class="Register-img">
+    <!-- <figcaption class="img-content">One account. All of Fundoo<br> working for you.</figcaption> -->
+</div>
+<div fxLayoutAlign="start">
+  <h1 class="head-style"><span class="Fundoof">F</span><span class="Fundoou">u</span><span
+          class="Fundoon">n</span><span class="Fundood">d</span><span class="Fundooo">o</span><span
+          class="Fundoooo">o</span></h1>
+
+</div>
+<div class="search-box">
+  <img src="../../../assets/search_icon.svg">
+ 
+  <input matInput placeholder="search">
+</div>
+<div class="topnav-icon">
+<a mat-list-item routerLink="/dashboard/notes"> <img src="../../../assets/refresh_icon.svg" class="upper-icon"></a>
+<a mat-list-item routerLink="/dashboard/notes"> <img src="../../../assets/list_icon.svg" class="upper-icon"></a>
+<img src="../../../assets/settings_icon.svg" class="upper-icon">
+<img src="../../../assets/apps_icon.svg" class="upper-icon">
+<img src="../../../assets/account_icon.svg" class="upper-icon">
+</div>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="example-sidenav-container"
+                         [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+                 [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+      <mat-nav-list>
+        <a mat-list-item routerLink="/dashboard/notes"> <img src="../../../assets/lightbulb_icon.svg" class="sidenav-icon"><p class="sidenavtext">Notes</p></a>
+        <a mat-list-item routerLink="."><img src="../../../assets/bell_icon.svg" class="sidenav-icon"><p class="sidenavtext">reminder</p></a>
+        <a mat-list-item routerLink="/dashboard/archieve"><img src="../../../assets/unarchive_icon.svg" class="sidenav-icon"><p class="sidenavtext">archieve</p></a>
+        <a mat-list-item routerLink="/dashboard/trash"><img src="../../../assets/delete_icon.svg" class="sidenav-icon"><p class="sidenavtext">trash</p></a>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
+
+

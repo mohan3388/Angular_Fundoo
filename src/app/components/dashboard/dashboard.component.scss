@@ -1,0 +1,112 @@
+
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.example-toolbar{
+  background: transparent;
+}
+
+.head-style {
+  font-weight: bold;
+}
+
+.Fundoo-f {
+  color: blue;
+}
+
+.Fundoo-u {
+  color: red;
+}
+
+.Fundoo-n {
+  color: yellow;
+}
+
+.Fundoo-d {
+  color: blue;
+}
+
+.Fundoo-o {
+  color: green;
+}
+
+.Fundoo-oo {
+  color: red;
+}
+
+.example-is-mobile .example-toolbar {
+  position: fixed;
+  /* Make sure the toolbar will stay on top of the content as it scrolls past. */
+  z-index: 2;
+}
+
+h1.example-app-name {
+  margin-left: 8px;
+}
+
+.example-sidenav-container {
+  /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
+     causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
+  flex: 1;
+}
+
+.example-is-mobile .example-sidenav-container {
+  /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
+     `<body>` to be our scrolling element for mobile layouts. */
+  flex: 1 0 auto;
+}
+
+.search-box{    
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-grow: 1;
+  background-color: #f1f3f4;
+  border-radius: 10px;
+  margin-left: 100px;   
+  padding: 10px;
+  height: 30px;   
+  font-weight: bold;
+  overflow: hidden;
+  input{
+    background-color: transparent;
+    border: none;
+    outline-style: none;
+  }
+  img{
+    margin-right: 10px;
+    padding: 10px;
+    height: 24px;
+  }
+
+}
+.sidenav-icon{
+  width: 22px;
+  
+}
+.span.mat-list-item-content{
+  padding-left: 12px;
+}
+.upper-icon{
+  width: 25px;
+  margin-left: 18px;
+}
+.topnav-icon{
+  padding: 0 5px 0 5px;
+  padding-left: 320px;
+  padding-right: 163px;
+}
+.sidenavtext{
+  margin-left: 15px;
+  margin-top: 12px;
+  padding: 9px 23px;
+  font-weight: 5px bold;
+  
+}
