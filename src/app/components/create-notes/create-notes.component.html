@@ -1,0 +1,58 @@
+<mat-card class="matcreatenotebox">
+    <form >
+    <div class="" fxLayoutAlign="center start">
+        <div class="container-createnote">
+            <div *ngIf="show">
+                <input type="text" class="inputbox-pannel" placeholder="Title">
+                <img src="../../../assets/pin_icon.svg" class="pinsicon">
+            </div>
+            
+                
+              <div style="display:flex ;" *ngIf="!show || show" (click)="isShow()">
+                <input type="text" class="inputbox-pannel" placeholder="Take a note..">
+                <div class="cardtopimgs" *ngIf="!show">
+                    <img src="../../../assets/right_icon.svg" class="sideicon">
+                <img src="../../../assets/paint_icon.svg" class="sideicon">
+                <img src="../../../assets/image_icon.svg" class="sideicon">
+              
+                </div>
+            
+                </div>
+           
+            <div>
+
+            </div>
+            
+            <div class="clsbtn" *ngIf="show" >
+                <app-icons></app-icons>
+                <a routerLink="." (click)="close()" class="closetab">close</a>
+            </div>
+            
+            <div>
+
+            </div>
+
+        </div>
+    </div>
+    </form>
+</mat-card>
+
+
+<!-- <mat-accordion class="accordion">
+        
+        <mat-expansion-panel hideToggle class="expansion-header">
+           
+          <mat-expansion-panel-header >
+            <mat-panel-title>
+                <input type="text" class="inputbox-pannel" placeholder="Title">
+                <img src="../../../assets/pin_icon.svg" class="pinicon">
+            </mat-panel-title>
+            
+            <mat-panel-description>
+            
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+         
+          <input type="text"  class="inputbox-pannel" placeholder="Take a notes">
+        </mat-expansion-panel>
+        </mat-accordion> -->
