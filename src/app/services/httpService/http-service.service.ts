@@ -9,11 +9,11 @@ export class HttpServiceService {
   postservice(url:any, data:any, token:boolean=false, option:any){
    return this.httpClient.post(url,data,token && option);
   }
-  getservice(){
-
+  getservice(url:any, token:boolean=false, option:any){
+   return this.httpClient.get(url, token && option);
   }
-  putservice(){
-
+  putservice(url:any, data:any, token:boolean=false, option:any){
+   return this.httpClient.put(url,data,token && option);
   }
   deleteservice(){
 

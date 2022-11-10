@@ -33,7 +33,8 @@ export class LoginComponent implements OnInit {
       }
       this.user.login(data).subscribe((response:any)=>{
        
-       console.log(response);
+       console.log("response",response.data);
+       localStorage.setItem('token',response.data)
       }
       )
     }else{

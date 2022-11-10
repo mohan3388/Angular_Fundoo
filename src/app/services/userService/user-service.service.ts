@@ -6,7 +6,7 @@ import { HttpServiceService } from '../httpService/http-service.service';
   providedIn: 'root'
 })
 export class UserServiceService {
-
+token:any;
   constructor(private http:HttpServiceService) { }
 
   register(data:any){
@@ -28,10 +28,11 @@ export class UserServiceService {
   resetpassword(data:any){
     let header={
       headers:new HttpHeaders({
-        'Content-type':'application/json'
+        'Content-type':'application/json',
+        'Authorization':'Bearer '+this.token
       })
     }
-  return this.http.postservice('https://localhost:44321/api/User/ResetPassword',data,false,header);
+  return this.http.postservice('https://localhost:44321/api/User/ResetPassword',data,true,header);
   }
   forgetpassword(data:any){
     let header={

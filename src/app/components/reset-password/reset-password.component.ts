@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { UserServiceService } from 'src/app/services/userService/user-service.service';
 // import { MustMatch } from './_helpers/must-match.validator';
 @Component({
@@ -10,7 +11,8 @@ import { UserServiceService } from 'src/app/services/userService/user-service.se
 export class ResetPasswordComponent implements OnInit {
   resetpassword!: FormGroup;
   submitted = false;
-  constructor(private formBuilder: FormBuilder,private user:UserServiceService) { }
+  token:any;
+  constructor(private formBuilder: FormBuilder,private user:UserServiceService,private activeRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.resetpassword = this.formBuilder.group({
@@ -18,7 +20,8 @@ export class ResetPasswordComponent implements OnInit {
       cpassword: ['', [Validators.required, Validators.minLength(4)]]
     }
       );
-      
+      this.token = this.activeRoute.snapshot.paramMap.get('token');
+    console.log(this.token);  
       
   }
  

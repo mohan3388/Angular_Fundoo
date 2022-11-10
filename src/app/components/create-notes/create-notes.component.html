@@ -1,15 +1,15 @@
 <mat-card class="matcreatenotebox">
-    <form >
+    <form [formGroup]="createNoteForm" (ngSubmit)="close">
     <div class="" fxLayoutAlign="center start">
         <div class="container-createnote">
             <div *ngIf="show">
-                <input type="text" class="inputbox-pannel" placeholder="Title">
+                <input type="text" class="inputbox-pannel" placeholder="Title" formControlName="title">
                 <img src="../../../assets/pin_icon.svg" class="pinsicon">
             </div>
             
                 
               <div style="display:flex ;" *ngIf="!show || show" (click)="isShow()">
-                <input type="text" class="inputbox-pannel" placeholder="Take a note..">
+                <input type="text" class="inputbox-pannel" placeholder="Take a note.." formControlName="description">
                 <div class="cardtopimgs" *ngIf="!show">
                     <img src="../../../assets/right_icon.svg" class="sideicon">
                 <img src="../../../assets/paint_icon.svg" class="sideicon">
@@ -25,9 +25,10 @@
             
             <div class="clsbtn" *ngIf="show" >
                 <app-icons></app-icons>
-                <a routerLink="." (click)="close()" class="closetab">close</a>
+                <div class="btncls">
+                <a routerLink="." (click)="close()" class="closetab">Close</a>
             </div>
-            
+            </div>
             <div>
 
             </div>
