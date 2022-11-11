@@ -1,0 +1,20 @@
+<!-- <app-display-notes [NotesList]="archiveList"></app-display-notes> -->
+
+<div class="display-note row">
+  <div *ngFor="let note of archiveList">
+    <mat-card class="note-card">
+      <mat-card-title class="note-title">
+        {{note.title}}
+      </mat-card-title>
+      <mat-card-content class="note-description">
+        {{note.description}}
+        <div> {{note.noteId}}</div>
+      </mat-card-content>
+      <div class="icons">
+        <button class="notesbutton">
+         <app-icons></app-icons>
+        </button>
+      </div>
+    </mat-card>
+  </div>
+</div>

@@ -6,7 +6,7 @@
     <p (click)="openDialog(notes)">{{notes.description}}</p>
     <!-- <div> {{notes.noteId}}</div> -->
     </div>
-    <app-icons></app-icons>
+    <app-icons [noteObject]="notes"></app-icons>
 </mat-card>
 </div>
 </div>

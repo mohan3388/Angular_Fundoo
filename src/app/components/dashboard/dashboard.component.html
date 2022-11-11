@@ -33,14 +33,16 @@
       <mat-nav-list>
         <a mat-list-item routerLink="/dashboard/notes"> <img src="../../../assets/lightbulb_icon.svg" class="sidenav-icon"><p class="sidenavtext">Notes</p></a>
         <a mat-list-item routerLink="."><img src="../../../assets/bell_icon.svg" class="sidenav-icon"><p class="sidenavtext">reminder</p></a>
-        <a mat-list-item routerLink="/dashboard/archieve"><img src="../../../assets/unarchive_icon.svg" class="sidenav-icon"><p class="sidenavtext">archieve</p></a>
+        <a mat-list-item routerLink="/dashboard/archive"><img src="../../../assets/unarchive_icon.svg" class="sidenav-icon"><p class="sidenavtext">archieve</p></a>
         <a mat-list-item routerLink="/dashboard/trash"><img src="../../../assets/delete_icon.svg" class="sidenav-icon"><p class="sidenavtext">trash</p></a>
       </mat-nav-list>
     </mat-sidenav>
 
     <mat-sidenav-content>
-      <!-- <router-outlet></router-outlet><hr> -->
-     <hr> <app-get-all-notes></app-get-all-notes>
+      <hr>   
+      <!-- <app-create-notes></app-create-notes> -->
+      <router-outlet></router-outlet>
+     
       
       <!-- <app-icons></app-icons> -->
     </mat-sidenav-content>

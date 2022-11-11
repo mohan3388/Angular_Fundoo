@@ -3,6 +3,15 @@
     <a routerLink="."><img src="../../../assets/collaborator_icon.svg" class="card-icons"></a>
     <a routerLink="."> <img src="../../../assets/background_icon.svg" class="card-icons"></a>
     <a routerLink="."><img src="../../../assets/image_icon.svg" class="card-icons"></a>
-    <a routerLink="."><img src="../../../assets/unarchive_icon.svg" class="card-icons"></a>
-    <a routerLink="."> <img src="../../../assets/threedot_icon.svg" class="card-icons"></a>
+    <a routerLink="."><img src="../../../assets/unarchive_icon.svg" class="card-icons" (click)="onArchive()" (click)="Unarchive(note)"></a>
+    <a routerLink="."> <img src="../../../assets/threedot_icon.svg" class="card-icons" [matMenuTriggerFor]="more">
+    <mat-menu #more="matMenu">
+        <button mat-menu-item class="matmenuBtn">Delete note</button>
+        <button mat-menu-item class="matmenuBtn">Add Label</button>
+        <button mat-menu-item class="matmenuBtn">Add drawing</button>
+        <button mat-menu-item class="matmenuBtn">Make a copy</button>
+        <button mat-menu-item class="matmenuBtn">Show checkboxes</button>
+        <button mat-menu-item class="matmenuBtn">Copy to google Docs</button>
+      </mat-menu>
+      </a>
 </div>
