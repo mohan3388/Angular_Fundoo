@@ -23,10 +23,19 @@ import { MatIconModule } from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { GetAllNotesComponent } from './components/get-all-notes/get-all-notes.component';
-import { ArchiveComponent } from './components/archive/archive.component';
+
 import { TrashComponent } from './components/trash/trash.component';
+import { DisplayNotesComponent } from './components/display-notes/display-notes.component';
+import { IconsComponent } from './components/icons/icons.component';
+import { CreateNotesComponent } from './components/create-notes/create-notes.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { UpdateNotesComponent } from './components/update-notes/update-notes.component';
+import { ArchiveNotesComponent } from './components/archive-notes/archive-notes.component';
+import {MatMenuModule} from '@angular/material/menu';
 @NgModule({
   declarations: [
+
     AppComponent,
     RegisterComponent,
     LoginComponent,
@@ -34,8 +43,13 @@ import { TrashComponent } from './components/trash/trash.component';
     ForgetPasswordComponent,
     DashboardComponent,
     GetAllNotesComponent,
-    ArchiveComponent,
+   ArchiveNotesComponent,
     TrashComponent,
+    DisplayNotesComponent,
+    IconsComponent,
+    CreateNotesComponent,
+    UpdateNotesComponent,
+    ArchiveNotesComponent,
     
   ],
   imports: [
@@ -43,6 +57,7 @@ import { TrashComponent } from './components/trash/trash.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
+    MatDialogModule,
     MatInputModule,
     MatCardModule,
     MatCheckboxModule,
@@ -54,7 +69,9 @@ import { TrashComponent } from './components/trash/trash.component';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatExpansionModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

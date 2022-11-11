@@ -40,4 +40,33 @@ token:any
     }
     return this.http.putservice('https://localhost:44321/api/Note/Update?NoteId='+noteId,data,true,header);
    }
+   ArchiveNotes(data:any){
+    let header={
+      headers:new HttpHeaders({
+        'Content-Type':'application/json',
+        'Authorization':'Bearer '+this.token
+      })
+    }
+    return this.http.putservice('https://localhost:44321/api/Note/Archieve?NoteId='+data,{},true,header);
+   }
+   TrashNotes(data:any){
+    let header={
+      headers:new HttpHeaders({
+        'Content-Type':'application/json',
+        'Authorization':'Bearer '+this.token
+      })
+    }
+    return this.http.putservice('https://localhost:44321/api/Note/Trash?NoteId='+data,{},true,header);
+   }
+NotesColor(data:any){
+  let header = {
+    headers:new HttpHeaders({
+      'Content-type':'application/json',
+      'Authorization': 'Bearer '+ this.token
+    })
+  }
+  return this.http.putservice('https://localhost:44321/api/Note/Color?NoteId='+data+'&Color=' +data.color,{},true,header)
 }
+
+}
+
