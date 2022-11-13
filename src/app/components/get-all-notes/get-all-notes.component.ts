@@ -18,6 +18,7 @@ getAllNotes(){
 this.notes.getNotes().subscribe((response:any)=>{
   console.log(response);
   this.noteArray=response.data;
+  
 //  this.noteArray=this.noteArray.reverse()
  console.log(this.noteArray)
 })

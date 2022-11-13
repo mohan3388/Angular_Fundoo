@@ -56,8 +56,10 @@ token:any
         'Authorization':'Bearer '+this.token
       })
     }
-    return this.http.putservice('https://localhost:44321/api/Note/Trash?NoteId='+data,{},true,header);
+   return this.http.putservice(`https://localhost:44321/api/Note/TrashNotes/${data}`,{},true,header);
    }
+
+   
 NotesColor(data:any){
   let header = {
     headers:new HttpHeaders({

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UserServiceService } from 'src/app/services/userService/user-service.service';
 @Component({
   selector: 'app-login',
@@ -9,7 +10,7 @@ import { UserServiceService } from 'src/app/services/userService/user-service.se
 export class LoginComponent implements OnInit {
   login!: FormGroup;
   submitted = false;
-  constructor(private formBuilder: FormBuilder,private user:UserServiceService) { }
+  constructor(private formBuilder: FormBuilder,private user:UserServiceService,private route:Router) { }
 
   ngOnInit(): void {
     this.login = this.formBuilder.group({
@@ -34,7 +35,8 @@ export class LoginComponent implements OnInit {
       this.user.login(data).subscribe((response:any)=>{
        
        console.log("response",response.data);
-       localStorage.setItem('token',response.data)
+       localStorage.setItem('token',response.data);
+       this.route.navigateByUrl('/dashboard/notes');
       }
       )
     }else{

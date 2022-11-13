@@ -8,6 +8,7 @@ import { NoteServiceService } from 'src/app/services/noteService/note-service.se
 })
 export class TrashComponent implements OnInit {
   trashList:any;
+  // trash:boolean=false;
   constructor(private note:NoteServiceService) { }
 
   ngOnInit(): void {
@@ -24,7 +25,9 @@ export class TrashComponent implements OnInit {
       })
       console.log("trash notes ",this.trashList);
      })
- 
   }
 
 }
+
+
+

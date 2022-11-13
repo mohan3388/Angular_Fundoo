@@ -1,5 +1,7 @@
-import { Component, OnInit,Input,Output,EventEmitter} from '@angular/core';
+import { Component, OnInit,Input} from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { NoteServiceService } from 'src/app/services/noteService/note-service.service';
+import { TrashComponent } from '../trash/trash.component';
 
 @Component({
   selector: 'app-icons',
@@ -8,27 +10,35 @@ import { NoteServiceService } from 'src/app/services/noteService/note-service.se
 })
 export class IconsComponent implements OnInit {
   @Input() noteObject:any;
-  @Output() NotesDisplay = new EventEmitter<string>();
-  colorArray: Array<any> = [
-    { code: '#ffffff', name: 'white' },
-    { code: '#FF6347', name: 'Tomato' },
-    { code: '#FF4500', name: 'OrangeRed'},
-    { code: '#FFFF00', name: 'yellow' },
-    { code: '#ADFF2F', name: 'greenyellow' },
-    { code: '#B0C4DE', name: 'LightSteelBlue' },
-    { code: '#EEE8AA', name: 'PaleGoldenRod' },
-    { code: '#7FFFD4', name: 'Aquamarine' },
-    { code: '#FFE4C4', name: 'Bisque' },
-    { code: '#C0C0C0', name: 'Silver' },
-    { code: '#BC8F8F', name: 'RosyBrown'},
-  ];
-  noteId:any;
-  archieve =false;
-  trash=false;
-  constructor(public note:NoteServiceService) { }
+  isArchive=false;
+  isTrash=false;
+
+  colorArray =[{colorCode:"maroon"},
+  {colorCode:"silver"},
+  {colorCode:"Yellow"},
+  {colorCode:"Purple"},
+  {colorCode:"pink"},
+  {colorCode:"chocolate"},
+  {colorCode:"Wheat"},
+  {colorCode:"indigo"},
+  {colorCode:"hotpink"},
+  {colorCode:"lightblue"},
+  {colorCode:"green"},
+  {colorCode:"olive"}];
+  
+  noteListId:any;
+  archieve: boolean = false;
+  trash: boolean = false;
+  constructor(private note:NoteServiceService,private activateRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
-    
+    // let component = this.activateRoute.snapshot.component;
+    // if (component == TrashComponent) {
+    //   this.trash = true;
+    // }
+    // if (component == TrashComponent) {
+    //   this.archieve = true;
+    // }
   }
   onArchive() {
     let reqData={
@@ -37,31 +47,36 @@ export class IconsComponent implements OnInit {
     console.log(reqData);
     this.note.ArchiveNotes(this.noteObject.noteId).subscribe((response: any) => {
       console.log("Note Archived Successfully",response);
-      
+      // window.location.reload();
     })
   }
-  
-  onDelete() {
 
+
+  
+  onClickTrash() {
+   
     let reqData={
       NoteId:[this.noteObject.noteId],
     }
-    console.log(reqData)
+    console.log(reqData);
     this.note.TrashNotes(this.noteObject.noteId).subscribe((response: any) => {
       console.log("Note trash Successfully",response);
-      
+      // window.location.reload();
     })
-    
+
+
   }
-  selectColor(colors:any){
+
+  selectColor(color:any){
+    this.noteListId = this.noteObject.color=color;
     let reqData = {
-      color : colors.name,
-      noteID : this.noteObject.noteID
-    }
-    console.log(reqData);
-     this.note.NotesColor(reqData).subscribe((response:any) =>{
+      color: color,
+      noteId:[this.noteObject.noteId],    
+    };
+    this.note.NotesColor(this.noteObject.noteId).subscribe((response: any) => {
       console.log(response);
-      this.NotesDisplay.emit(response);
+      
+      console.log("color", reqData.color)
     })
   }
 }

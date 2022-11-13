@@ -1,18 +1,23 @@
 <div class="icons">
     <a routerLink="."> <img src="../../../assets/reminder_icon.svg" class="card-icons"></a>
     <a routerLink="."><img src="../../../assets/collaborator_icon.svg" class="card-icons"></a>
-    <a routerLink="."> <img src="../../../assets/background_icon.svg" class="card-icons" [matMenuTriggerFor]="paletteMenu">
-        <mat-menu #paletteMenu="matMenu">
-            <div *ngFor='let colors of colorArray'>
-              <button class="colorIcon" [style.background]="colors.code" (click)="selectColor(colors)"></button>
-            </div>
-          </mat-menu>
+    <a routerLink="."> <img src="../../../assets/background_icon.svg" class="card-icons" [matMenuTriggerFor]="color">
+      <mat-menu #color="matMenu" yPosition="below">
+        <div *ngFor="let color of colorArray" fxLayout="row row wrap" fxLayourAlign="center" class="button-clr">
+            <button mat-mini-fab [style.background-color]="color?.colorCode"
+                (click)="selectColor(color?.colorCode)"></button>
+        </div>
+    </mat-menu>
     </a>
     <a routerLink="."><img src="../../../assets/image_icon.svg" class="card-icons"></a>
     <a routerLink="."><img src="../../../assets/unarchive_icon.svg" class="card-icons" (click)="onArchive()"></a>
+    <!-- <img *ngIf="isArchive && !isTrash" src="../../../assets/unarchive.svg" (click)="onUnArchievenote()"
+    matTooltip="UnArchive"> -->
+ 
+    <!-- <a routerLink="."><img *ngIf="isArchive && !isTrash" src="../../../assets/unarchive.svg" (click)="onUnArchievenote()"></a> -->
     <a routerLink="."> <img src="../../../assets/threedot_icon.svg" class="card-icons" [matMenuTriggerFor]="more">
     <mat-menu #more="matMenu">
-        <button mat-menu-item class="matmenuBtn" (click)="onDelete()">Delete note</button>
+        <button mat-menu-item class="matmenuBtn" (click)="onClickTrash()">Delete note</button>
         <button mat-menu-item class="matmenuBtn">Add Label</button>
         <button mat-menu-item class="matmenuBtn">Add drawing</button>
         <button mat-menu-item class="matmenuBtn">Make a copy</button>

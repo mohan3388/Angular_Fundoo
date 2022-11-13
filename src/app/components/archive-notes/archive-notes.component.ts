@@ -8,6 +8,7 @@ import { NoteServiceService } from 'src/app/services/noteService/note-service.se
 })
 export class ArchiveNotesComponent implements OnInit {
   archiveList: any;
+  
   constructor(private note:NoteServiceService) { }
 
   ngOnInit(): void {
