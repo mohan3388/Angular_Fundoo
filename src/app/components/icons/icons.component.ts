@@ -1,6 +1,8 @@
 import { Component, OnInit,Input} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+
 import { NoteServiceService } from 'src/app/services/noteService/note-service.service';
+import { ArchiveNotesComponent } from '../archive-notes/archive-notes.component';
 import { TrashComponent } from '../trash/trash.component';
 
 @Component({
@@ -10,8 +12,8 @@ import { TrashComponent } from '../trash/trash.component';
 })
 export class IconsComponent implements OnInit {
   @Input() noteObject:any;
-  isArchive=false;
-  isTrash=false;
+  isArchieve: boolean = false;
+  isTrash: boolean = false;
 
   colorArray =[{colorCode:"maroon"},
   {colorCode:"silver"},
@@ -27,18 +29,17 @@ export class IconsComponent implements OnInit {
   {colorCode:"olive"}];
   
   noteListId:any;
-  archieve: boolean = false;
-  trash: boolean = false;
-  constructor(private note:NoteServiceService,private activateRoute:ActivatedRoute) { }
+  
+  constructor(private note:NoteServiceService,private route:ActivatedRoute) { }
 
   ngOnInit(): void {
-    // let component = this.activateRoute.snapshot.component;
-    // if (component == TrashComponent) {
-    //   this.trash = true;
-    // }
-    // if (component == TrashComponent) {
-    //   this.archieve = true;
-    // }
+    let component = this.route.snapshot.component;
+    if (component == TrashComponent) {
+      this.isTrash = true;
+    }
+    if (component == ArchiveNotesComponent) {
+      this.isArchieve = true;
+    }
   }
   onArchive() {
     let reqData={
@@ -67,16 +68,33 @@ export class IconsComponent implements OnInit {
 
   }
 
-  selectColor(color:any){
-    this.noteListId = this.noteObject.color=color;
+  selectColor(color:any)
+  {
+    this.noteListId = this.noteObject.noteId;
+    console.log(color);
+    console.log(this.noteObject.noteId);
     let reqData = {
-      color: color,
-      noteId:[this.noteObject.noteId],    
-    };
-    this.note.NotesColor(this.noteObject.noteId).subscribe((response: any) => {
-      console.log(response);
-      
-      console.log("color", reqData.color)
-    })
-  }
+       bgcolor: color,
+    }
+
+    this.note.NotesColor(this.noteObject.noteId, reqData).subscribe((response: any) => {
+      console.log("all colors displayed", response);
+     
+  })
+}
+
+//   selectColor(color:any){
+//   this.noteListId = this.noteObject.noteId;
+//   let reqData = {
+//     color: color,
+//     NoteId:this.noteObject.noteId,   
+
+//   };
+//   console.log("mohan"+color);
+//   this.note.NotesColor(this.noteListId,reqData).subscribe((response: any) => {
+//     console.log(response);
+    
+//     console.log("color", reqData)
+//   })
+// }   
 }

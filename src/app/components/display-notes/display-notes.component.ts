@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit} from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { UpdateNotesComponent } from '../update-notes/update-notes.component';
 

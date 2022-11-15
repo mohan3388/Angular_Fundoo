@@ -56,18 +56,19 @@ token:any
         'Authorization':'Bearer '+this.token
       })
     }
-   return this.http.putservice(`https://localhost:44321/api/Note/TrashNotes/${data}`,{},true,header);
+   return this.http.putservice('https://localhost:44321/api/Note/TrashNotes?NoteId='+data,{},true,header);
    }
 
    
-NotesColor(data:any){
+NotesColor(data:any, noteId:any){
   let header = {
     headers:new HttpHeaders({
       'Content-type':'application/json',
       'Authorization': 'Bearer '+ this.token
     })
   }
-  return this.http.putservice('https://localhost:44321/api/Note/Color?NoteId='+data+'&Color=' +data.color,{},true,header)
+  // console.log("hju"+reqData);
+  return this.http.putservice(`https://localhost:44321/api/Note/ChangeColor?NoteId=${noteId}&color=${data}`,{},true,header)
 }
 
 }
