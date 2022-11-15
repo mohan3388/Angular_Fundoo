@@ -60,7 +60,7 @@ token:any
    }
 
    
-NotesColor(data:any, noteId:any){
+NotesColor(data:any){
   let header = {
     headers:new HttpHeaders({
       'Content-type':'application/json',
@@ -68,7 +68,7 @@ NotesColor(data:any, noteId:any){
     })
   }
   // console.log("hju"+reqData);
-  return this.http.putservice(`https://localhost:44321/api/Note/ChangeColor?NoteId=${noteId}&color=${data}`,{},true,header)
+  return this.http.putservice(`https://localhost:44321/api/Note/ChangeColor?NoteId=${data.noteId}&color=${data.color}`,{},true,header)
 }
 
 }

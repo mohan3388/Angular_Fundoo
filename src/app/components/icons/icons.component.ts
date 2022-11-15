@@ -27,8 +27,7 @@ export class IconsComponent implements OnInit {
   {colorCode:"lightblue"},
   {colorCode:"green"},
   {colorCode:"olive"}];
-  
-  noteListId:any;
+  noteListId: any;
   
   constructor(private note:NoteServiceService,private route:ActivatedRoute) { }
 
@@ -70,17 +69,47 @@ export class IconsComponent implements OnInit {
 
   selectColor(color:any)
   {
-    this.noteListId = this.noteObject.noteId;
-    console.log(color);
-    console.log(this.noteObject.noteId);
+    this.noteListId = this.noteObject.color = color;
     let reqData = {
-       bgcolor: color,
-    }
-
-    this.note.NotesColor(this.noteObject.noteId, reqData).subscribe((response: any) => {
-      console.log("all colors displayed", response);
+      color: color,
+      noteId:this.noteObject.noteId,      
+    };
+    this.note.NotesColor(reqData).subscribe((response: any) => {
+      console.log(response);
      
-  })
+      console.log("color", reqData)
+    })
+  }   
+
+  onUnArchievenote() {
+   
+    this.note.ArchiveNotes(this.noteObject.noteId).subscribe((response: any) => {
+      console.log(response);
+     
+    })
+  }
+
+  onRestore() {
+  
+    this.note.ArchiveNotes(this.noteObject.noteId).subscribe((response: any) => {
+      console.log(response);
+     
+
+    })
+  }
+
+  //   this.noteListId = this.noteObject.noteId=color;
+  //   console.log(color);
+  //   console.log(this.noteObject.noteId);
+  //   let reqData = {
+  //     color:color,
+  //      bgcolor: color,
+  //   }
+
+  //   this.note.NotesColor(this.noteObject.noteId, reqData).subscribe((response: any) => {
+  //     console.log("all colors displayed", response);
+     
+  // })
 }
 
 //   selectColor(color:any){
@@ -97,4 +126,4 @@ export class IconsComponent implements OnInit {
 //     console.log("color", reqData)
 //   })
 // }   
-}
+

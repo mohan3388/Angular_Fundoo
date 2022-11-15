@@ -5,15 +5,15 @@
       <mat-menu #color="matMenu" yPosition="below">
         <div *ngFor="let color of colorArray" fxLayout="row row wrap" fxLayourAlign="center" class="button-clr">
           
-            <button mat-mini-fab [style.background-color]="color?.colorCode"
-                (click)="selectColor(color?.colorCode)"></button>
+          <button mat-mini-fab [style.background-color]="color?.colorCode"
+          (click)="selectColor(color?.colorCode)"></button>
         </div>
     </mat-menu>
     </a>
     <a routerLink="."><img *ngIf="!isArchieve && !isTrash" src="../../../assets/archive_icon.svg"
       matTooltip="Archive" class="card-icons" (click)="onArchive()"></a>
     <a routerLink="."><img *ngIf="isArchieve && !isTrash" src="../../../assets/unarchive.svg"
-      matTooltip="UnArchive" class="card-icons"></a>
+      matTooltip="UnArchive" class="card-icons" (click)="onUnArchievenote()"></a>
     
     <a routerLink="."> <img src="../../../assets/threedot_icon.svg" class="card-icons" [matMenuTriggerFor]="more" *ngIf="!isTrash"> 
     <mat-menu #more="matMenu">
@@ -27,6 +27,6 @@
       </a>
       <div *ngIf="isTrash" class="icons">
         <a> <img class="card-icons" src="../../../assets/delete_icon.svg" matTooltip="Delete forever"></a>
-         <a> <img class="card-icons" src="../../../assets/restore.svg" matTooltip="Restore"></a>
+         <a> <img class="card-icons" src="../../../assets/restore.svg" matTooltip="Restore" (click)="onRestore()"></a>
         </div>
 </div>

@@ -21,7 +21,7 @@ export class TrashComponent implements OnInit {
       console.log(this.trashList);
       this.trashList.reverse();
       this.trashList=this.trashList.filter((object:any)=>{
-       return object.trash==true;
+       return object.trash==true ;
       })
       console.log("trash notes ",this.trashList);
      })

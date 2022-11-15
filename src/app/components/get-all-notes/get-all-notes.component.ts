@@ -18,11 +18,12 @@ getAllNotes(){
 this.notes.getNotes().subscribe((response:any)=>{
   console.log(response);
   this.noteArray=response.data;
+  this.noteArray=this.noteArray.reverse()
   this.noteArray = this.noteArray.filter((object: any) => {
         return object.archieve == false && object.trash == false;
     
         })
-//  this.noteArray=this.noteArray.reverse()
+
  console.log(this.noteArray)
 })
 }
@@ -31,15 +32,3 @@ receiveMeassage(e:any){
 this.getAllNotes();
 }
 }
-
-// getAllNotes(){
-//   this.notes.getNotes().subscribe((response: any) => {
-//     console.log(response.data);
-//     this.noteArray = response.data;
-//     this.noteArray = this.noteArray.reverse()
-//     this.noteArray = this.noteArray.filter((object: any) => {
-//     return object.archive == false && object.trash == false;
-
-//     })
-// })
-// }

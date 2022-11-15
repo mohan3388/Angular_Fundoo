@@ -20,10 +20,18 @@ getArchiveNotes(){
     console.log(this.archiveList);
     this.archiveList.reverse();
     this.archiveList=this.archiveList.filter((object:any)=>{
-     return object.archieve==true;
+     return object.archieve==true && object.trash == false;
     })
     console.log("Archive notes ",this.archiveList);
    })
 }
 
 }
+
+// this.noteArray=this.noteArray.reverse()
+// this.noteArray = this.noteArray.filter((object: any) => {
+//       return object.archieve == false && object.trash == false;
+  
+//       })
+
+// console.log(this.noteArray)
