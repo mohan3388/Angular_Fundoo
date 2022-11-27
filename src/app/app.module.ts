@@ -33,6 +33,9 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import { UpdateNotesComponent } from './components/update-notes/update-notes.component';
 import { ArchiveNotesComponent } from './components/archive-notes/archive-notes.component';
 import {MatMenuModule} from '@angular/material/menu';
+import { AuthguardServiceService } from './services/AuthguardService/authguard-service.service';
+// import { RouterModule, ROUTES } from '@angular/router';
+import {Routes, RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
 
@@ -71,9 +74,10 @@ import {MatMenuModule} from '@angular/material/menu';
     MatListModule,
     MatToolbarModule,
     MatExpansionModule,
-    MatMenuModule
+    MatMenuModule,
+    RouterModule,
   ],
-  providers: [],
+  providers: [AuthguardServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

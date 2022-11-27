@@ -68,7 +68,7 @@ NotesColor(data:any){
     })
   }
   // console.log("hju"+reqData);
-  return this.http.putservice(`https://localhost:44321/api/Note/ChangeColor?NoteId=${data.noteId}&color=${data.color}`,{},true,header)
+  return this.http.putservice(`https://localhost:44321/api/Note/Color?NoteId=${data.noteId}&Color=${data.color}`,{},true,header)
 }
 
 }

@@ -47,7 +47,7 @@ export class IconsComponent implements OnInit {
     console.log(reqData);
     this.note.ArchiveNotes(this.noteObject.noteId).subscribe((response: any) => {
       console.log("Note Archived Successfully",response);
-      // window.location.reload();
+      window.location.reload();
     })
   }
 
@@ -61,7 +61,7 @@ export class IconsComponent implements OnInit {
     console.log(reqData);
     this.note.TrashNotes(this.noteObject.noteId).subscribe((response: any) => {
       console.log("Note trash Successfully",response);
-      // window.location.reload();
+      window.location.reload();
     })
 
 
@@ -78,52 +78,23 @@ export class IconsComponent implements OnInit {
       console.log(response);
      
       console.log("color", reqData)
+      window.location.reload();
     })
   }   
 
-  onUnArchievenote() {
-   
-    this.note.ArchiveNotes(this.noteObject.noteId).subscribe((response: any) => {
+  onUnArchievenote() {  
+  this.note.ArchiveNotes(this.noteObject.noteId).subscribe((response: any) => {
       console.log(response);
-     
+      window.location.reload();
     })
   }
 
   onRestore() {
-  
-    this.note.ArchiveNotes(this.noteObject.noteId).subscribe((response: any) => {
+      this.note.TrashNotes(this.noteObject.noteId).subscribe((response: any) => {
       console.log(response);
-     
-
     })
   }
-
-  //   this.noteListId = this.noteObject.noteId=color;
-  //   console.log(color);
-  //   console.log(this.noteObject.noteId);
-  //   let reqData = {
-  //     color:color,
-  //      bgcolor: color,
-  //   }
-
-  //   this.note.NotesColor(this.noteObject.noteId, reqData).subscribe((response: any) => {
-  //     console.log("all colors displayed", response);
-     
-  // })
 }
 
-//   selectColor(color:any){
-//   this.noteListId = this.noteObject.noteId;
-//   let reqData = {
-//     color: color,
-//     NoteId:this.noteObject.noteId,   
-
-//   };
-//   console.log("mohan"+color);
-//   this.note.NotesColor(this.noteListId,reqData).subscribe((response: any) => {
-//     console.log(response);
-    
-//     console.log("color", reqData)
-//   })
-// }   
+ 
 

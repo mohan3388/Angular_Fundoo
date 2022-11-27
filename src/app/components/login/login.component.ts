@@ -10,7 +10,7 @@ import { UserServiceService } from 'src/app/services/userService/user-service.se
 export class LoginComponent implements OnInit {
   login!: FormGroup;
   submitted = false;
-  constructor(private formBuilder: FormBuilder,private user:UserServiceService,private route:Router) { }
+  constructor(private formBuilder: FormBuilder,private user:UserServiceService,private router:Router) { }
 
   ngOnInit(): void {
     this.login = this.formBuilder.group({
@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
        
        console.log("response",response.data);
        localStorage.setItem('token',response.data);
-       this.route.navigateByUrl('/dashboard/notes');
+       this.router.navigateByUrl('/dashboard');
       }
       )
     }else{
