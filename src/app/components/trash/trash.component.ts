@@ -26,7 +26,10 @@ export class TrashComponent implements OnInit {
       console.log("trash notes ",this.trashList);
      })
   }
-
+  receiveMeassage(e:any){
+    console.log(e);
+  this.TrashList();
+  }
 }
 
 

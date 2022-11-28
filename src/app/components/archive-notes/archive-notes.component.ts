@@ -25,9 +25,11 @@ getArchiveNotes(){
     console.log("Archive notes ",this.archiveList);
    })
 }
+receiveMessage(event: any) {
+  this.getArchiveNotes();
 
 }
-
+}
 // this.noteArray=this.noteArray.reverse()
 // this.noteArray = this.noteArray.filter((object: any) => {
 //       return object.archieve == false && object.trash == false;

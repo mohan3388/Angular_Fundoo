@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NoteServiceService } from 'src/app/services/noteService/note-service.service';
 
@@ -11,8 +11,9 @@ export class CreateNotesComponent implements OnInit {
   show=false;
   createNoteForm!:FormGroup;
   submitted=false;
-  constructor(private formbuilder:FormBuilder, private note:NoteServiceService) { }
 
+  constructor(private formbuilder:FormBuilder, private note:NoteServiceService) { }
+  @Output() messageEvent = new EventEmitter<any>();
   ngOnInit(): void {
     this.createNoteForm=this.formbuilder.group({
       title:['',Validators.required],
@@ -34,7 +35,7 @@ close(){
     console.log(resdata);
     this.note.addNotes(resdata).subscribe((result:any)=>{
       console.log(result);
-      
+      this.messageEvent.emit(result)
     })
   }
   // console.log(this.t)
@@ -43,4 +44,5 @@ onSubmit(){
   this.submitted=true;
 
 }
+
 }
