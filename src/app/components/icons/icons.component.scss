@@ -1,7 +1,7 @@
 .card-icons{
-    width: 22px;
+    width: 19px;
     margin-top: 20px;
-    padding: 11px;
+    padding: 8px;
 }
 
 
@@ -51,6 +51,20 @@ width: 40px;
     height: 100px;
     background-color: yellow;
 }
+.colour{
+    height: 130px;
+    width: 170px;
+   border: 0px solid blue;
+  display: flex;
+  justify-content: space-around;
+}
 // .mat-menu-content.ng-tns-c122-1{
 //     display: flex;
 // }
+
+.icons{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 150px;
+}

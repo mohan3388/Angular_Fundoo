@@ -1,5 +1,5 @@
 
 <!-- <app-dashboard></app-dashboard> -->
 <app-create-notes (messageEvent)="receiveMeassage($event)"></app-create-notes> 
- <app-display-notes [childMessage]="noteArray"></app-display-notes>
+ <app-display-notes [childMessage]="noteArray" (updatedisplay)="updatedicon($event)" (displayArchive)="receiveMessagearchive($event)" (isTrash)="trashmessage($event)"></app-display-notes>
 <!-- <app-icons></app-icons> -->

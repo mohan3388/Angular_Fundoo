@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { NoteServiceService } from 'src/app/services/noteService/note-service.service';
 
 @Component({
@@ -27,8 +27,29 @@ this.notes.getNotes().subscribe((response:any)=>{
  console.log(this.noteArray)
 })
 }
-receiveMeassage(e:any){
-  console.log(e);
-this.getAllNotes();
+// receiveMeassage(e:any){
+//   console.log(e);
+// this.getAllNotes();
+// }
+// receiveMessagearchive($event:any){
+//   console.log($event);
+//   this.getAllNotes();
+// }
+
+receiveMeassage($event:any) {
+  console.log($event);
+  this.getAllNotes();
+}
+updatedicon($event:any) {
+  console.log($event);
+  this.getAllNotes();
+}
+receiveMessagearchive($event:any){
+  console.log($event);
+  this.getAllNotes();
+}
+trashmessage($event:any){
+  console.log($event)
+  this.getAllNotes();
 }
 }

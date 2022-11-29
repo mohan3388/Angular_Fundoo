@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Output,EventEmitter } from '@angular/core';
 import { NoteServiceService } from 'src/app/services/noteService/note-service.service';
 
 @Component({
@@ -8,9 +8,9 @@ import { NoteServiceService } from 'src/app/services/noteService/note-service.se
 })
 export class ArchiveNotesComponent implements OnInit {
   archiveList: any;
- 
-  constructor(private note:NoteServiceService) { }
 
+  constructor(private note:NoteServiceService) { }
+ @Output() displayicons = new EventEmitter<any>();
   ngOnInit(): void {
     this.getArchiveNotes();
   }
@@ -25,9 +25,8 @@ getArchiveNotes(){
     console.log("Archive notes ",this.archiveList);
    })
 }
-receiveMessage(event: any) {
+recieveArchiveNote(event: any) {
   this.getArchiveNotes();
-
 }
 }
 // this.noteArray=this.noteArray.reverse()

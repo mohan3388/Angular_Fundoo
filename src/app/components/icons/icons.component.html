@@ -4,10 +4,12 @@
     <a routerLink="."><img src="../../../assets/image_icon.svg" class="card-icons" *ngIf="!isTrash"></a>
     <a routerLink="."> <img src="../../../assets/background_icon.svg" *ngIf="!isTrash" class="card-icons" [matMenuTriggerFor]="color">
       <mat-menu #color="matMenu" yPosition="below" class="clr-menu">
+        <div fxLayout="row wrap" class="colour" fxLayoutAlign="start center" style="padding-left: 3px;">
         <div *ngFor="let color of colorArray" fxLayout="row row wrap" fxLayourAlign="center" >
           
           <button mat-mini-fab [style.background-color]="color?.colorCode"
           (click)="selectColor(color?.colorCode)"></button>
+        </div>
         </div>
     </mat-menu>
     </a>
@@ -26,7 +28,7 @@
         <button mat-menu-item class="matmenuBtn">Copy to google Docs</button>
       </mat-menu>
       </a>
-      <div *ngIf="isTrash">
+      <div *ngIf="isTrash" fxLayout="row" fxLayourAlign="center">
         <a> <img class="card-icons" src="../../../assets/delete_icon.svg" matTooltip="Delete forever" (click)="onClickTrash()" style="cursor:pointer;"></a>
          <a> <img class="card-icons" src="../../../assets/restore.svg" matTooltip="Restore" (click)="onRestore()" style="cursor:pointer;"></a>
         </div>

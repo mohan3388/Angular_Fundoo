@@ -1,4 +1,4 @@
-import { Component, OnInit,Input} from '@angular/core';
+import { Component, OnInit,Input,Output,EventEmitter} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { NoteServiceService } from 'src/app/services/noteService/note-service.service';
@@ -12,9 +12,12 @@ import { TrashComponent } from '../trash/trash.component';
 })
 export class IconsComponent implements OnInit {
   @Input() noteObject:any;
+  @Output() changeNoteEvent = new EventEmitter<string>();
+  @Output() displayicons = new EventEmitter<string>();
+  @Output() Trash=new EventEmitter<string>();
   isArchieve: boolean = false;
   isTrash: boolean = false;
-
+  
   colorArray =[{colorCode:"maroon"},
   {colorCode:"silver"},
   {colorCode:"Yellow"},
@@ -47,7 +50,8 @@ export class IconsComponent implements OnInit {
     console.log(reqData);
     this.note.ArchiveNotes(this.noteObject.noteId).subscribe((response: any) => {
       console.log("Note Archived Successfully",response);
-      window.location.reload();
+      this.displayicons.emit(response);
+      console.log(response)
     })
   }
 
@@ -61,7 +65,7 @@ export class IconsComponent implements OnInit {
     console.log(reqData);
     this.note.TrashNotes(this.noteObject.noteId).subscribe((response: any) => {
       console.log("Note trash Successfully",response);
-      window.location.reload();
+      this.Trash.emit(response);
     })
 
 
@@ -77,15 +81,15 @@ export class IconsComponent implements OnInit {
     this.note.NotesColor(reqData).subscribe((response: any) => {
       console.log(response);
      
-      console.log("color", reqData)
-      window.location.reload();
+      console.log("color", reqData);
+      this.changeNoteEvent.emit(response);
     })
   }   
 
   onUnArchievenote() {  
   this.note.ArchiveNotes(this.noteObject.noteId).subscribe((response: any) => {
       console.log(response);
-      window.location.reload();
+     
     })
   }
 

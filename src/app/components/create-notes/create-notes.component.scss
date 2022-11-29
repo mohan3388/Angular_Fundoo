@@ -1,8 +1,8 @@
  
   .inputbox-pannel{
     border: 0px solid;
-    width: 250px;
-    height: 51px;
+    width: 280px;
+    height: 44px;
     outline: none;
   }
  .matcreatenotebox{
@@ -11,10 +11,10 @@
     box-shadow: 2px 2px silver;
  }
 .clsbtn{
-    margin-left: 70px;
+    margin-left: 60px;
 }
 .sideicon{
-  width:22px;
+  width:20px;
   margin-left: 6px;
   margin-top: 20px;
 
@@ -35,4 +35,17 @@
 .btncls{
   margin-top: -35px;
   font-size: 18px;
+}
+#title-pannel{
+  
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+}
+#txt-pannel{
+  letter-spacing: .01428571em;
+    font-family: Roboto,Arial,sans-serif;
+    font-size: .875rem;
+    font-weight: 400;
+    line-height: 1.25rem;
 }

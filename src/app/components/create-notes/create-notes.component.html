@@ -3,13 +3,13 @@
     <div class="" fxLayoutAlign="center start">
         <div class="container-createnote">
             <div *ngIf="show">
-                <input type="text" class="inputbox-pannel" placeholder="Title" formControlName="title">
+                <input type="text" class="inputbox-pannel" id="title-pannel" placeholder="Title" formControlName="title" >
                 <img src="../../../assets/pin_icon.svg" class="pinsicon">
             </div>
             
                 
               <div style="display:flex ;" *ngIf="!show || show" (click)="isShow()">
-                <input type="text" class="inputbox-pannel" placeholder="Take a note.." formControlName="description">
+                <input type="text" class="inputbox-pannel" placeholder="Take a note.." formControlName="description" id="txt-pannel">
                 <div class="cardtopimgs" *ngIf="!show">
                     <img src="../../../assets/right_icon.svg" class="sideicon">
                 <img src="../../../assets/paint_icon.svg" class="sideicon">
