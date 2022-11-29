@@ -89,7 +89,7 @@ export class IconsComponent implements OnInit {
   onUnArchievenote() {  
   this.note.ArchiveNotes(this.noteObject.noteId).subscribe((response: any) => {
       console.log(response);
-     
+    this.displayicons.emit(response);
     })
   }
 

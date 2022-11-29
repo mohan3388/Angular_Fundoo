@@ -9,10 +9,10 @@ import { UpdateNotesComponent } from '../update-notes/update-notes.component';
 })
 export class DisplayNotesComponent implements OnInit {
   @Input() childMessage:any;
-  @Output() changeNoteEvent = new EventEmitter<string>();
-  @Output() updatedisplay = new EventEmitter<string>();
-  @Output() messageEvent = new EventEmitter<string>();
-  @Output()IsTrash=new EventEmitter<string>();
+  @Output() changeNoteEvent = new EventEmitter<any>();
+  @Output() updatedisplay = new EventEmitter<any>();
+  @Output() messageEvent = new EventEmitter<any>();
+  @Output() onClickTrash =new EventEmitter<string>();
  
 // show=false;
   constructor(public dialog:MatDialog) { }
@@ -36,10 +36,18 @@ export class DisplayNotesComponent implements OnInit {
     
     
   }
+
+  // receiveMessagearchive(event:any){
+  //   this.displayArchive.emit(event);
+  // }
   recieveArchiveNote(event: any) {
     this.changeNoteEvent.emit(event);
   }
   Trash(event:any){
-    this.IsTrash.emit(event)
+    this.onClickTrash.emit(event)
+  }
+  iconRefresh($event: any) {
+    console.log($event);
+    this.changeNoteEvent.emit($event)
   }
 }

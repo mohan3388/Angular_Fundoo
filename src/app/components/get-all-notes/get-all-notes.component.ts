@@ -52,4 +52,8 @@ trashmessage($event:any){
   console.log($event)
   this.getAllNotes();
 }
+iconRefresh($event:any){
+  console.log($event)
+  this.getAllNotes();
+}
 }

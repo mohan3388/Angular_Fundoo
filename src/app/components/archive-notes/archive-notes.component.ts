@@ -10,7 +10,7 @@ export class ArchiveNotesComponent implements OnInit {
   archiveList: any;
 
   constructor(private note:NoteServiceService) { }
- @Output() displayicons = new EventEmitter<any>();
+//  @Output() displayArchive = new EventEmitter<any>();
   ngOnInit(): void {
     this.getArchiveNotes();
   }
@@ -23,6 +23,7 @@ getArchiveNotes(){
      return object.archieve==true && object.trash == false;
     })
     console.log("Archive notes ",this.archiveList);
+    
    })
 }
 recieveArchiveNote(event: any) {
