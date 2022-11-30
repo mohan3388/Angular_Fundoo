@@ -1,9 +1,9 @@
 <mat-card class="matcreatenotebox">
     <form [formGroup]="createNoteForm" (ngSubmit)="close">
     <div class="" fxLayoutAlign="center start">
-        <div class="container-createnote">
+        <div class="container-createnote" >
             <div *ngIf="show">
-                <input type="text" class="inputbox-pannel" id="title-pannel" placeholder="Title" formControlName="title" >
+                <input type="text" class="inputbox-pannel" id="title-pannel" placeholder="Title" formControlName="title" style="font-size: 1rem;">
                 <img src="../../../assets/pin_icon.svg" class="pinsicon">
             </div>
             
@@ -24,7 +24,7 @@
             </div>
             
             <div class="clsbtn" *ngIf="show" >
-                <app-icons></app-icons>
+                <app-icons class="tr"></app-icons>
                 <div class="btncls">
                 <a routerLink="." (click)="close()" class="closetab">Close</a>
             </div>

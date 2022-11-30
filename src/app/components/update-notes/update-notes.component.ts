@@ -11,11 +11,13 @@ export class UpdateNotesComponent implements OnInit {
   title: any
   description: any
   id: any
+color:any;
   @Output() noteUpdated= new EventEmitter<any>();
   constructor(private notes:NoteServiceService ,  public dialogRef: MatDialogRef<UpdateNotesComponent>,  @Inject(MAT_DIALOG_DATA) public data: any) {
     this.title=data.title;
     this.description=data.description;
     this.id=data.noteId;
+    this.color=data.color;
    }
 
   ngOnInit(): void {
@@ -25,6 +27,7 @@ export class UpdateNotesComponent implements OnInit {
       title: this.title,
       description: this.description,
       noteId: this.id,
+      color:this.color
     }
     this.notes.updateNotes(reqData, this.id).subscribe((response:any) =>{ 
       console.log("update response", response); 

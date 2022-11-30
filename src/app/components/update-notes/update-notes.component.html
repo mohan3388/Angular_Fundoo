@@ -1,10 +1,10 @@
-<div style="padding: 10px;">
+<div style="padding:10px; border:2px red" [style.background]="data.color">
     <div class="text-Title">
-      <mat-card-title><input matInput [(ngModel)]="title"
+      <mat-card-title><input matInput [(ngModel)]="title"  [style.background]="data.color" 
           style="width: 400px; height: 30px; border: none; outline: none;"></mat-card-title>
     </div>
     <div class="text-body">
-      <input matInput [(ngModel)]="description" style="width: 400px; height: 30px; border: none; outline: none;">
+      <input matInput [(ngModel)]="description" [style.background]="data.color" style="width: 400px; height: 30px; border: none; outline: none;">
     </div>
     <div fxLayout="row" fxLayoutAlign="space-between end">
       <div class="icons">
